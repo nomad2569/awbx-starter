@@ -5,6 +5,8 @@ category: '과외'
 draft: false
 ---
 
+[2019 대학 수시 등급컷 자료](https://drive.google.com/drive/folders/1bCnUFkhOeCyuYlAqJibaY_5TWx99_J3a?usp=sharing)
+
 
 # 경기권
 

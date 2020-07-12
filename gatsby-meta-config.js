@@ -1,12 +1,12 @@
 module.exports = {
-  title: `awbx-starter`,
+  title: `awbx`,
   description: `열심히`,
   author: `awbx`,
   introduction: `머신러닝 / 데이터 분석 / 웹`,
   siteUrl: `https://gatsby-starter-bee.netlify.com`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
-    github: `http://github.com/nomad2569`, // Your GitHub account
+    github: `nomad2569`, // Your GitHub account
     medium: ``, // Your Medium account
     facebook: ``, // Your Facebook account
     linkedin: ``, // Your LinkedIn account

@@ -1,0 +1,696 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Parameter (argument) 모든 경우의 수\n",
+    "\n",
+    "#### 미래연구소 딥러닝 튜터 정연석"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "----------------------------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "총 7가지 방식이 있습니다.\n",
+    "\n",
+    "참고: https://docs.python.org/ko/3/glossary.html#term-parameter\n",
+    "\n",
+    "python 공식문서 한글 버전 정부에서 다 번역해 놓았습니다. (python의 중요성을 엿볼 수 있는 것 같습니다.)\n",
+    "\n",
+    "python 공식문서가 어려워도 블로그보다 더 정확한 지식을 전달하니 공식문서 보는 것도 추천드립니다.\n",
+    "\n",
+    "python 공부하다가 모르는 용어 나왔을 때는 python 공식문서 검색하시면 다 나옵니다.\n",
+    "\n",
+    "(안 나오는 case는 computer science 지식이라 그렇고 이는 구글링 해야합니다.)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "----------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 0. Background\n",
+    "\n",
+    "### 1) parameter란? argument란?\n",
+    "\n",
+    "의미상 사람들이 비슷하게 사용하고 있지만 조금 다릅니다.\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "#### <font color=\"darkred\">parameter: 함수를 정의할 때 사용하는 / 함수에 입력으로 전달된 값을 받는 변수\n",
+    "    \n",
+    "#### <font color=\"darkred\">argument: 함수를 사용(호출)할 때 사용하는"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def f(a, b, c):\n",
+    "    print(a, b, c)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "f(1,2,3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "parameter: a, b, c\n",
+    "    \n",
+    "argument: 1, 2, 3"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 2) positional? keyword?\n",
+    "\n",
+    "positional: 말 그대로 parameter, argument 이들을 배치하는 위치(순서)가 함수 정의 혹은 호출(사용) 시에 중요한 방식\n",
+    "\n",
+    "keyword: positional 방식과 달리 parameter, argument 이들을 배치할 때 위치(순서)가 중요하지 않고 등호를 사용한다."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 말보다 직접 예시를 보시는게 이해가 빠릅니다."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1. postional (parameter)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1) positional로 argument 사용 가능 (모두 가능)\n",
+    "\n",
+    "2) keyword로 argument default 값 설정 하는 case 제외 하고 사용 가능\n",
+    "\n",
+    "1> keyword 방식 2> 순서 변경 가능"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mycal_positional(a, b, c):\n",
+    "    return (a+b)*c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1) \n",
+    "mycal_positional(1, 2, 3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2) 1\n",
+    "mycal_positional(a=1,b=2,c=3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2) 2\n",
+    "mycal_positional(b=2,c=3,a=1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mycal_positional()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1)과 2)의 혼합 사용\n",
+    "mycal_positional(1,c=3,b=2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mycal_positional(c=3,2,a=1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "얘는 왜 안 될까?\n",
+    "\n",
+    "case: keyword argument가 positional argument 앞에 옴"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "-------------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 2. keyword (parmeter)\n",
+    "\n",
+    "1) positional로 argument 사용 가능 (모두 가능)\n",
+    "\n",
+    "2) keyword로 arguement 사용 가능 (모두 가능)\n",
+    "    \n",
+    "1> keyword 2> 순서 변경 가능 3> default (4> 이들 간의 혼합 사용)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mycal_keyword(a=1, b=2, c=3):\n",
+    "    return (a+b)*c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1)\n",
+    "mycal_keyword(1,2,6)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2) 1\n",
+    "mycal_keyword(a=2,b=4,c=3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2) 2\n",
+    "mycal_keyword(a=2,c=3,b=4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2) 3\n",
+    "mycal_keyword()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mycal_keyword(a=2,4,c=3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "얘는 왜 안 될까?\n",
+    "\n",
+    "case: keyword argument가 positional argument 앞에 옴"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 3. postional과 keyword의 혼용"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mycal_pnk(a,b=2,c=3):\n",
+    "    return (a+b)*c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mycal_knp(a=1,b,c):\n",
+    "    return (a+b)*c"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "이것도 안 되네\n",
+    "\n",
+    "case: keyword parameter가 positional parameter 앞에 옴"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "----------------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## <중간 정리>\n",
+    "\n",
+    "#### <font color=\"red\"> 1. 혼합 사용 가능하지만 positional parameter에서 keyword default는 불가능\n",
+    "\n",
+    "#### <font color=\"red\"> 2. keyword 방식이 positional 방식 앞에 나오는 것 불가 (positional-> keyword 순)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "-------------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 4. postional only\n",
+    "\n",
+    "#### <argument 사용>\n",
+    "\n",
+    "1) /: ,/ 앞에는 argument 사용은 postional 방식으로만 가능하다.\n",
+    "\n",
+    "#### <특징>\n",
+    "\n",
+    "1) 파이썬은 위치-전용 매개변수를 정의하는 문법을 갖고 있지 않습니다. \n",
+    "\n",
+    "(즉, 저희가 직접 정의하는 것은 불가능합니다.)\n",
+    "\n",
+    "(하지만 일부 python 내장함수 혹은 라이브러리 함수들은 이 방법을 이용해서 만들어졌으니 함수 설명 읽으실 때 참고하는 용으로만 등장합니다.)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mycal_po(a,/,b,c):\n",
+    "    return (a+b)*c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "help(sum) # numpy의 np.info와 같은 기능 (shift+tab 해야 나올 것을 output으로 출력)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sum([1,2,3],start = 0)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "------------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 5. keyword only\n",
+    "\n",
+    "#### <argument 사용>\n",
+    "\n",
+    "1) *  : ,*, 뒤에는 keyword 방식으로만 argument 사용 가능\n",
+    "\n",
+    "#### <특징>\n",
+    "\n",
+    "1) '/'와 달리 우리도 사용 가능하다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mycal_ko(a,*,b,c=3):\n",
+    "    return (a+b)*c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mycal_ko(1,b=2,c=3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mycal_ko(1,2,c=3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## <중간 정리>\n",
+    "\n",
+    "#### <font color=\"red\"> 3. 함수(positional only, / , 둘다 가능, *, keyword only) 형식으로 사용된다."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 6. var-positional (가변 postional)\n",
+    "\n",
+    "#### <argument 사용>\n",
+    "\n",
+    "1) *args: parameter 바로 앞에 *이 붙여서 함수를 정의하면 positional argument 사용시 그 자리에 0개에서 무한히 많은 argument를 넣을 수 있다.\n",
+    "\n",
+    "(arument의 수가 가변적이다.)\n",
+    "\n",
+    "#### <특징>\n",
+    "\n",
+    "1) 그 원리는 *args 자리에 넣은 argument들이 함수 사용할 때(함수 호출) tuple 형태로 들어간다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def vp(a,b,*c):\n",
+    "    print(a)\n",
+    "    print(b)\n",
+    "    print(c)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "vp(1,2,3,4,5,6)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mycal_vp(a,b=2,*c):\n",
+    "    return (a+b)*c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "3*(3,4,5,6)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mycal_vp(1,2,3,4,5,6)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "(1+2) * (3,4,5,6)이고\n",
+    "\n",
+    "3*(3,4,5,6)으로 튜플자료형의 곱셈 연산이 이루어져서 (3,4,5,6)을 3번 이어준다.\n",
+    "\n",
+    "참고:https://wikidocs.net/15#_7"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "----------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 7. var-keyword (가변 keyword 방식)\n",
+    "\n",
+    "#### <argument 사용>\n",
+    "\n",
+    "1)  **kwargs: parameter 바로 앞에  \n",
+    "* **이 붙여서 함수를 정의하면 keyword argument 사용시 그 자리에 0개에서 무한히 많은 argument를 넣을 수 있다.\n",
+    "\n",
+    "(arument의 수가 가변적이다.)\n",
+    "\n",
+    "#### <특징>\n",
+    "\n",
+    "1) 그 원리는 **kwarg 자리에 넣은 argument들이 함수 사용할 때(함수 호출) dictionary 형태로 들어간다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def vk(a,b,**c):\n",
+    "    print(a)\n",
+    "    print(b)\n",
+    "    print(c)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "vk(1,2, num1=3, num2=4, num3=5, num4=6)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def programmer_info(name, age, **career):\n",
+    "    print('your name: ' +name)\n",
+    "    print('your age : '+str(age))\n",
+    "    print('your career: '+str(career))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "programmer_info('홍길동', '50', naver=10, google=7, changup=5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "----------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# <총정리>\n",
+    "\n",
+    "#### <font color=\"red\"> 1. 혼합 사용 가능하지만 positional parameter에서 keyword default는 불가능\n",
+    "\n",
+    "#### <font color=\"red\"> 2. keyword 방식이 positional 방식 앞에 나오는 것 불가 (positional-> keyword 순)\n",
+    "\n",
+    "#### <font color=\"red\"> 3. 함수(positional only, / , 둘다 가능, *, keyword only) 형식으로 사용된다.\n",
+    "    \n",
+    "    \n",
+    "positional은 필수적으로 들어갈 것, keyword는 잘 안 사용하거나 특수하게 사용하는 기능이 들어가는 것을 유추할 수 있음\n",
+    "\n",
+    "(중요도 순서 po -> p -> k -> ko)\n",
+    "    \n",
+    "#### <font color=\"red\"> 4. 가변 postional은 튜플로, 가변 keyword는 dictionary 형태로 함수 사용할 때 들어가며 개수는 0개에서 무한히 들어간다.\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "-----------"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 한 번 들어서 완벽하게 이해될 수 없는 내용입니다. (특히, 많이 7가지 개념이 서로 헷갈릴 수 밖에 없습니다.)\n",
+    "\n",
+    "### 하지만 앞으로 2달 정도 기간 내에 함수 찾아보며 이 개념을 적용해보면 1~2 주 안에 이 방식은 익숙해집니다."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

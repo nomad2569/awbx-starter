@@ -1,9 +1,9 @@
 module.exports = {
-  title: `awbx`,
+  title: `n0mad`,
   description: `열심히`,
-  author: `awbx`,
+  author: `n0mad`,
   introduction: `머신러닝 / 데이터 분석 / 웹`,
-  siteUrl: `https://awbx-starter.netlify.app`, // Your blog site url
+  siteUrl: `https://n0mad.netlify.app`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: `nomad2569`, // Your GitHub account

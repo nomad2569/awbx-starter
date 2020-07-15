@@ -9,6 +9,9 @@ export const Top = ({ title, location, rootPath }) => {
   return (
     <div className="topWrapper">
       <div className="top">
+        <Link to={'/about'} className="linkToAbout">
+          <span className="about">about</span>
+        </Link>
         {!isRoot && (
           <Link to={`/`} className="link">
             {title}

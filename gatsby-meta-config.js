@@ -2,7 +2,7 @@ module.exports = {
   title: `n0mad`,
   description: `열심히`,
   author: `n0mad`,
-  introduction: `머신러닝 / 데이터 분석 / 웹`,
+  introduction: `n0mad가 되자`,
   siteUrl: `https://n0mad.netlify.app`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account

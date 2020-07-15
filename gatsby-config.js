@@ -3,6 +3,15 @@ const metaConfig = require('./gatsby-meta-config')
 module.exports = {
   siteMetadata: metaConfig,
   plugins: [
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: metaConfig.siteUrl,
+        sitemap: `${metaConfig.siteUrl}/sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -3,7 +3,7 @@ module.exports = {
   description: `열심히`,
   author: `awbx`,
   introduction: `머신러닝 / 데이터 분석 / 웹`,
-  siteUrl: `https://gatsby-starter-bee.netlify.app`, // Your blog site url
+  siteUrl: `https://awbx-starter.netlify.app`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: `nomad2569`, // Your GitHub account

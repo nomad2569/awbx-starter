@@ -1,6 +1,6 @@
 module.exports = {
   title: `n0mad`,
-  description: `열심히`,
+  description: `안희웅`,
   author: `n0mad`,
   introduction: `n0mad가 되자`,
   siteUrl: `https://n0mad.netlify.app`, // Your blog site url

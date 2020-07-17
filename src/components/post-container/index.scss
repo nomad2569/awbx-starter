@@ -16,4 +16,18 @@
       font-size: 1.3rem;
     }
   }
+  h3 {
+    font-size: 1.6rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+  img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 90%;
+    border: 1px solid black;
+  }
 }

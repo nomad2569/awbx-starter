@@ -74,66 +74,74 @@ draft: false
 
 > JS에서의 `Sync` `Async` 가 아니다!
 
-1. Sync
-2. Async
+1.  Sync
+2.  Async
 
-   ## Sync communication
+    ## Sync communication
 
-   Sync Communication 에서는 필요한 DB의 data를 그 DB에 해당하는 service에 접근하여 얻어낸다.
+    Sync Communication 에서는 필요한 DB의 data를 그 DB에 해당하는 service에 접근하여 얻어낸다.
 
-   아래 예시를 보자
+    아래 예시를 보자
 
-   ![SyncExample](./files/SyncExample.PNG)
+    ![SyncExample](./files/SyncExample.PNG)
 
-   ### Pros
+    ### Pros
 
-   ***
+    ***
 
-   1. 개념적으로 이해가 쉽다
-   2. 서비스 D 는 DB가 필요하지 않다.
+    1. 개념적으로 이해가 쉽다
+    2. 서비스 D 는 DB가 필요하지 않다.
 
-   ### Cons
+    ### Cons
 
-   ***
+    ***
 
-   1. 서비스들 간의 종속성을 만든다.
-   2. 서비스 간의 요청이 하나라도 실패한다면, 모든 것이 실패한다
-   3. 여러 서비스들에 접근해야 했을 때, sync의 속도는 가장 느린 서비스 request의 속도가 될 것이다.
-   4. 너무 많은 request를 초래할 수 있다.
+    1. 서비스들 간의 종속성을 만든다.
+    2. 서비스 간의 요청이 하나라도 실패한다면, 모든 것이 실패한다
+    3. 여러 서비스들에 접근해야 했을 때, sync의 속도는 가장 느린 서비스 request의 속도가 될 것이다.
+    4. 너무 많은 request를 초래할 수 있다.
 
-   ## Async Communication
+    ## Async Communication
 
-   > db-per-service pattern 과 마찬가지로 async communication은 이상하고 비효율적으로 보이겠지만 hold on!
+    > db-per-service pattern 과 마찬가지로 async communication은 이상하고 비효율적으로 보이겠지만 hold on!
 
-   1. Event Bus 만 활용
+    1. Event Bus 만 활용
 
-   > Service D 는 DB가 없을 것
-   > 현실에서 쓰이긴 하지만 Sync 의 단점들만을 안고 있다고 볼 수도 있다. 이번 강좌에서는 2번을 쓸 것
+    > Service D 는 DB가 없을 것
+    > 현실에서 쓰이긴 하지만 Sync 의 단점들만을 안고 있다고 볼 수도 있다. 이번 강좌에서는 2번을 쓸 것
 
-   1. Event Bus 를 활용하여 data를 저장
+    1. Event Bus 를 활용하여 data를 저장
 
-   Service D의 DB를 생성해두고 다른 DB에 변화가 생기면 event bus를 통하여 그 값을 전달해주어서 Service D의 DB를 동시에 채워넣어주는 것.
+    Service D의 DB를 생성해두고 다른 DB에 변화가 생기면 event bus를 통하여 그 값을 전달해주어서 Service D의 DB를 동시에 채워넣어주는 것.
 
-   만약 위의 예시에서 새로운 product를 등록한다면 해당 부분을 처리하는 Service는 자신의 DB에 그것을 등록함과 동시에 Event bus에 값을 전달해줌
+    만약 위의 예시에서 새로운 product를 등록한다면 해당 부분을 처리하는 Service는 자신의 DB에 그것을 등록함과 동시에 Event bus에 값을 전달해줌
 
-   > "새로운 제품 등록됐는데 관심 있는 Service~" 이런 느낌
+    > "새로운 제품 등록됐는데 관심 있는 Service~" 이런 느낌
 
-   그러면 Service D 가 그 값을 전달받아서 자신의 DB에 등록한다
+    그러면 Service D 가 그 값을 전달받아서 자신의 DB에 등록한다
 
-   그러면 결국 Service D는 fully populated
+    그러면 결국 Service D는 fully populated
 
-   ## Pros
+    ## Pros
 
-   1. Service D 는 zero dependency
-   2. Service D 는 자신의 DB에만 접근하면 되기에 매우 빠르다
+    1. Service D 는 zero dependency
+    2. Service D 는 자신의 DB에만 접근하면 되기에 매우 빠르다
 
-   ## Cons
+    ## Cons
 
-   1. Data duplication..
-   2. 이해가 어렵다
+    1. Data duplication..
+    2. 이해가 어렵다
 
-   ***
+    ***
 
-   ![ExtraDB](./files/ExtraDB.PNG)
+    ![ExtraDB](./files/ExtraDB.PNG)
 
-   > 아마존의 상품 정보 100,000,000 개를 1달 저장하는데 14달러 정도 밖에 들지 않을 것
+    > 아마존의 상품 정보 100,000,000 개를 1달 저장하는데 14달러 정도 밖에 들지 않을 것
+
+## 읽어볼만한 글
+
+- [Microservice-architecture란]("https://medium.com/webeveloper/microservice-architecture%EB%9E%80-ca9825087050")
+
+- [마이크로서비스 기반 클라우드 아키텍처 구성 모범 사례 - 윤석찬 (AWS 테크에반젤리스트)]("https://www.slideshare.net/awskorea/microservices-architecuture-on-aws")
+
+- [MSA]("https://brunch.co.kr/@yesjun/2")

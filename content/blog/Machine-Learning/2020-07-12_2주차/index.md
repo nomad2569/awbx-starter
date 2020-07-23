@@ -42,20 +42,21 @@ draft: false
 
 ### Notation
 
-    $x$ = data 1개의 input = `feature vector` (feature의 개수 = `n_x`)
+$x$ = data 1개의 input = `feature vector` (feature의 개수 = `n_x`)
 
-    $y$ = data 1개의 label = binary에서는 0 or 1의 값
+$y$ = data 1개의 label = binary에서는 0 or 1의 값
 
-    $(x,y)$ : training data 가 $m$개 있다.
+$(x,y)$ : training data 가 $m$개 있다.
 
-    $X$ : $[x(1),x(2)...x(m)]$
-    >`vectorization` 이 쓰임
+$X$ : $[x^{(1)},x^{(2)}...x^{(m)}]$
 
-    >$X$의 shape = $(n_x,m)$
+> `vectorization` 이 쓰임
 
-    $Y$ : $[y(1),y(2)...y(m)]$
+> $X$의 shape = $(n_x,m)$
 
-    >$Y$의 shape = $(1,m)$
+$Y$ : $[y^{(1)},y^{(2)}...y^{(m)}]$
+
+> $Y$의 shape = $(1,m)$
 
 ## Logistic regression의 5가지 과정
 

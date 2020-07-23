@@ -87,7 +87,7 @@ Backward propagation 을 하는데
      - `.reshape` 함수를 사용해보자
      -
 
-미지의 nd-array가 있을 때, 거의 모든 라이브러리에서, array.shape을 출력해보면 shape[0] 에는 m 이 들어 있다
+미지의 nd-array가 있을 때, 거의 모든 프레임워크에서(tensorflow 등), array.shape을 출력해보면 shape[0] 에는 m 이 들어 있다
 
 ## Question 2
 

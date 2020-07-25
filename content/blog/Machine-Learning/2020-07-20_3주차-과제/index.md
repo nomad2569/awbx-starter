@@ -176,12 +176,45 @@ Common steps for pre-processing a new dataset are:
 
      2. `grads` 안에서 `dw`, `db` 를 꺼내서 `dw`, `db` 의 값으로 초기화 해준다.
 
-     3. $w = w - `learning_rate` * dw$ 와
+     3. $w = w - \alpha * dw$ 와
 
-        \$b = b - `learning_rate` \* db\$ 를 이용해서 `w` 와 `b`를 update 해준다.
+        $b = b - \alpha * db$
+
+        를 이용해서 `w` 와 `b`를 update 해준다.
+
+        > b 도 갱신해주어야 하나?
 
      4. 100번째 반복마다 `costs` 에 `cost` 를 append 해준다.
 
   반복이 끝나면 `params`, `grads` 그리고 `costs` 를 return 한다.
 
-  4. p
+  생략
+
+  ---
+
+지금까지 tensorflow 같은 프레임워크를 쓰지 않고 numpy 만으로 cat classification 을 구현해 보았다.
+
+train data를 이용해서 logistic regression 모델을 구현하였는데 우리가 train data 로 이용한 data를 이용하여 모델을 쓸 때는 정확도가 99%에 육박했지만 test data 로 모델을 돌려 보았을 때는 정확도가 82% 였다.
+
+무엇이 문제였을까?
+
+Overfitting 에 대해 알아보자
+
+# Overfitting
+
+> overfitting 은 학습 데이터를 과하게 잘 학습하는 것을 뜻한다.
+
+![Overfitting](./files/Overfitting.PNG)
+
+우리가 가진 train data set 은 결국 세상에 존재하는 모든 데이터의 부분집합 일 수 밖에 없기 때문에 필연적으로 Overfitting 이 발생할 수 밖에 없다.
+
+> 만약 우리가 흰색 고양이에 대한 img 만을 train data 로 쓴다면 노란색 고양이 img (test data) 를 고양이로 판독하지 못할 가능성이 큰 것이다.
+
+### 참고
+
+- [로지스틱 회귀]("https://ratsgo.github.io/machine%20learning/2017/04/02/logistic/")
+
+> 어렵다..
+
+- [[머신러닝] - Overfitting (과적합)]("https://untitledtblog.tistory.com/68")
+- [Machine Learning 스터디 (3) Overfitting]("http://sanghyukchun.github.io/59/")

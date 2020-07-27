@@ -179,7 +179,6 @@ Common steps for pre-processing a new dataset are:
      3. $w = w - \alpha * dw$ 와
 
         $b = b - \alpha * db$
-
         를 이용해서 `w` 와 `b`를 update 해준다.
 
         > b 도 갱신해주어야 하나?

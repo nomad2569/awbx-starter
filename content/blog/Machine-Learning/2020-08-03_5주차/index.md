@@ -35,7 +35,7 @@ $(n^{[l]}, n^{l-1})(n^{[l-1]}, m) + (n^{[l]}, 1)$
 
 ![dnn](./files/dnn.PNG)
 
-![vectoirzed](./files/vetorized.PNG)
+![vectoirzed](./files/vetroized.PNG)
 
 $Z^{[l]}$ 을 cache 하는 것이 나중에 back prop 할 때 좋다.
 

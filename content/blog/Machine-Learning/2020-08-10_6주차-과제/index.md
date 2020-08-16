@@ -92,3 +92,11 @@ one-hot encoding 을 안했다 = sparse_categorical_crossentropy
 실수한 것
 
 1. output layer 의 unit 개수는 data 의 class 개수와 같아야 하는데 (10개) 기존에 하던 것과 착각해서 1개로 함
+
+# 프로젝트 data set 주제 정하기
+
+> kaggle 에서 골라보자
+
+[전 세계의 인기있는 웹사이트](https://www.kaggle.com/bpali26/popular-websites-across-the-globe/discussion)
+
+[미슐랭-레스토랑](https://www.kaggle.com/jackywang529/michelin-restaurants)

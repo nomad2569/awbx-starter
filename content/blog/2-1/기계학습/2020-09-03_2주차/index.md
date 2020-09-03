@@ -200,7 +200,7 @@ _여기부터 잘 이해 못함_
 
 주어진 evidence 에 대해서 predict 하는 행위를 $\alpha_i$ 로 명명하겠다.
 
-Loss of $\alpha_i$ when the stae is $C_k$ : $\lamba_{ik}$
+Loss of $\alpha_i$ when the stae is $C_k$ : $\lambda_{ik}$
 
 : i 로 했지만 사실은 k 였을 때
 

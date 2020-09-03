@@ -1,6 +1,6 @@
 ---
-title: '[기계학습] [2주차] Supervised Learning'
-date: 2020-09-01 16:21:13
+title: '[기계학습] [2회차] Supervised Learning'
+date: 2020-09-03 16:21:13
 category: '기계학습'
 draft: false
 ---

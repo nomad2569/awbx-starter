@@ -185,4 +185,22 @@ preds = model.predict([testAttrX, testImagesX])
 - epoch : 100
 - ![result_2](./files/result_2.PNG)
 - 상당히 높은 수준의 val_accuracy 를 보여줌. 99프로
+- 제출 결과 : 0.787
+
+### 3
+
+- ResNet50 모델 사용 / 간단한 mlp 사용
+- 동일
+- 동일
+- 동일
+- epoch : 100
+- 낮은 수준의 결과 너무 깊은 모델인듯함.
+
+### 4
+
+- **letter data 를 이진화 시킨 뒤 flatten 하여 보았다**
+- annealer 추가
+- 준혁님 모델 사용 / 간단한 mlp 에 kernel init 추가
+- epoch : 100
+- ![result_4](./files/result_4.PNG)
 - 제출 결과 :

@@ -159,3 +159,30 @@ preds = model.predict([testAttrX, testImagesX])
 이번에 수행한 mixed input 은 더 나아지긴 했으나 **26-27**% 의 error 를 낳음으로써 **not even as great as the simpler MLP method** 한 결과를 생성했다.
 
 # 컴퓨터 비전 학습 경진대회에 적용해보자
+
+> > letter data 를 `ord` 를 통해 unicode 로 바꾸었다. 하지만, 한 개의 data 만으로 mlp 를 구성하여도 잘 작동할까? max 값이 90 이므로 이것을 이진수로 바꾸어 $2^6$ 까지 그러니까 7개의 0, 1 data 로 바꿔서 mlp 에 넣어보는 것은 어떨까? 하지만 일단 한 개의 input 으로만 해보자
+
+> > `np.asarray(X_train).astype(np.float32)` 형변환 해주는 이유를 알겠군
+
+## 결과
+
+### 1
+
+- 준혁님의 cnn 모델 사용 / 간단한 mlp 사용
+- **Imagegenerator 사용 못함**
+- train_data_split 사용 안함
+- `model.fit` 으로 간단하게만 함
+- epoch : 100
+- 70% 70% 정도로 underfit 이 발생 -> Imagegenerator 로 데이터 뻥튀기가 필요함
+- 제출 결과 : 0.7205
+
+### 2
+
+- 준혁님의 cnn 모델 사용 / 간단한 mlp 사용
+- **Imagegenerator** 를 while 문을 활용하여 사용해봄. (성능 향상의 가장 중요한 과정이었다.)
+- train_data_split 사용 안함
+- `model.fit` 으로만 함
+- epoch : 100
+- ![result_2](./files/result_2.PNG)
+- 상당히 높은 수준의 val_accuracy 를 보여줌. 99프로
+- 제출 결과 :

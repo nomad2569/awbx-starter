@@ -204,3 +204,15 @@ preds = model.predict([testAttrX, testImagesX])
 - epoch : 100
 - ![result_4](./files/result_4.PNG)
 - 제출 결과 :
+
+### 5
+
+- ResNet + BatchNorm
+- epoch 30 : 0.995 / 0.8
+
+- ResNet + BatchNorm + Dropout
+- epoch 50 : 0.95 0.9
+
+- Dropout 많이 : val이 90을 넘기지 못함
+
+- 0.999, 0.9333

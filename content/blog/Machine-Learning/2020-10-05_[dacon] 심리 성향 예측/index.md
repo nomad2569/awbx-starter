@@ -31,9 +31,13 @@ date: 2020-10-05 00:00:00
 
 > LGBM model 의 parameter 를 바꿔보았다. learning_rate 를 줄이고 `boosting_typ` 을 **'dart'** 로 바꿔보았다. 맨 아래 LGBM 관련 글을 참고해보자
 
+## QT
+
 > 더 나은 모델을 구축하여 <font size="5rem">Kfold</font> 를 시도해보자.
 >
 > <p/>semi-supervised learning 을 적용해볼 수 있을까?
+>
+> 전형적인 regression 문제인 것 같은데.. binary classification 으로도 가능하지 않을까?
 
 # 읽어본 글
 

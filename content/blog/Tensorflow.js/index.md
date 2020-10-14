@@ -57,5 +57,10 @@ ML 을 위해 CPU 와 GPU 가 필요하지만 JS 는 GPU 위에서 돌아가지 
 1. npm 을 통해 설치
 2. script tag 사용
 
-1.
-2. <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+3.
+4. <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+**실습**
+
+## Memoty Leak
+$$
